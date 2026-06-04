@@ -24,14 +24,14 @@ This file documents all point-years that were reviewed during interpretation but
 
 This manifest allows users to distinguish between observations that were sampled but rejected for quality reasons and observations that were retained in the final analysis. It can also be used to audit exclusion patterns, evaluate sampling constraints, and reproduce the dataset filtering steps described in the manuscript. Based on the manuscript, the exclusion log should account for **374 excluded point-years**.
 
-#### `data/class_mapping_table.csv`
+#### `data/ceo_class_mapping.csv`
 This lookup table documents how raw **Collect Earth Online (CEO)** survey responses were harmonized into the standardized analytical classes used in the study. It links questionnaire-level labels such as **Single Crop**, **Double Crop**, **Irrigated**, and **Not Cropped** to the final crop and crop-rotation categories used in the released dataset. The table is intended to improve transparency around label harmonization and support reproducibility of downstream analyses.
 
 **Irrigated observations** and observations marked as **cover crop** were recorded during interpretation but **excluded from class-distribution analysis**.
 
 ### Decision rules and interpretation guidance
 
-#### `decision_rule/operation criteria used by interpreter.doc`
+#### `decision_rule/operational criteria used by interpreter.doc`
 This document provides the interpreter operating guide used during Collect Earth Online (CEO) labeling and adjudication. It summarizes the practical decision rules applied by interpreters to classify each point-year, including how to distinguish **non-cropped**, **single crop**, **double crop**, **irrigated**, and **other** observations using combined evidence from CEO imagery, MODIS EVI time series, and Landsat seasonal composites. The guide also documents exclusion criteria for mixed pixels, roads, field edges, cloud-contaminated observations, and other low-confidence cases, as well as the phenology-based heuristics used to separate major Cerrado classes such as **soy**, **soy-corn**, **soy-cotton**, and **sugarcane**.
 
 ### Google Earth Engine scripts
