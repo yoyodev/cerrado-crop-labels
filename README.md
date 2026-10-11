@@ -41,8 +41,7 @@ The table includes original and final coordinates, anonymized interpreter respon
 | [data/cerrado_crop_labels_analytical_subset_v1.csv](data/cerrado_crop_labels_analytical_subset_v1.csv) | Derived convenience file: the 1,806-record analytical subset reported in the paper. Equivalent to filtering the main table on `training_candidate_before_cover_filter`. |
 | [data/data_dictionary.csv](data/data_dictionary.csv) | Column types and descriptions. |
 | [data/README.md](data/README.md) | Detailed data documentation, QC decisions, coordinate handling, and subset rules. |
-| [scripts/prepare_public_release.py](scripts/prepare_public_release.py) | Recreates the public tables from the processed internal audit. |
-| [notebook/README.md](notebook/README.md)| Reanalysis notebook that consolidates the CEO response files into the internal audit. Documented for provenance; requires restricted source files. |
+
 
 ### Crop classes and selectable subsets
 
@@ -99,15 +98,11 @@ print(subset["label_support_tier"].value_counts())
 print((subset["mapped_class"].value_counts(normalize=True) * 100).round(1))
 ```
 
-### Rebuilding the release (restricted inputs)
+### Source files and processing code (on request)
 
-Rebuilding the public tables requires the ten original CEO response exports and the interpreter-assignment table. These files contain identifying metadata and are not distributed, so public users cannot run this step. It is documented for provenance and for authorized users with access to the source files. Run the reanalysis notebook (`[NOTEBOOK PATH AND FILENAME]`) on those files, then run:
+The public point-year table was derived from the ten origin CEO response exports and the interpreter-assignment table. These files contain identifying metadata and are not distributed. The processing code that builds the point-year table from them operates on thes restricted inputs and is available from the authors on request.
 
-```bash
-python scripts/prepare_public_release.py --audit-dir /path/to/ceo_reanalysis_results --output-dir .
-```
-
-The release does not provide a complete history of every interpreter's pre-adjudication decision.
+The released does not provide a complete history of every interpreter's pre-adjudication decision.
 
 The labels may support downstream crop mapping, benchmarking, or model development after selection appropriate to the research question. Response support and QC flags do not certify independent accuracy.
 
