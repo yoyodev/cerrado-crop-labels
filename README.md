@@ -39,11 +39,11 @@ The table includes original and final coordinates, anonymized interpreter respon
 | [data/cerrado_crop_labels_point_year_v1.csv](data/cerrado_crop_labels_point_year_v1.csv) | Complete 4,080-row point-year table. |
 | [data/cerrado_crop_label_responses_v1.csv](data/cerrado_crop_label_responses_v1.csv) | Anonymized source-response table with 10,800 records, preserving raw crop-system, crop-type, cropping-sequence, and cover-crop answers. |
 | [data/cerrado_crop_labels_analytical_subset_v1.csv](data/cerrado_crop_labels_analytical_subset_v1.csv) | Derived convenience file: the 1,806-record analytical subset reported in the paper. Equivalent to filtering the main table on `training_candidate_before_cover_filter`. |
+| [data/crop_class_mapping.csv](data/crop_class_mapping.csv) | Mapping from raw CEO crop-system, crop-type, and sequence answers to the standardized crop classes (Supplementary Table S1). |
 | [data/data_dictionary.csv](data/data_dictionary.csv) | Column types and descriptions. |
 | [data/README.md](data/README.md) | Detailed data documentation, QC decisions, coordinate handling, and subset rules. |
-| [gee/modis.js](gee/modis.js) | Google Earth Engine script for the MODIS EVI time series views used in interpretation. |
-| [gee/landsat.js](gee/landsat.js) | Google Earth Engine script for the Landsat composites and image chip views used in interpretation. |
-
+| [gee/modis.js](gee/modis.js) | Google Earth Engine script for the MODIS EVI time-series views used in interpretation. |
+| [gee/landsat.js](gee/landsat.js) | Google Earth Engine script for the Landsat composite and image-chip views used in interpretation. |
 
 ### Crop classes and selectable subsets
 
@@ -67,13 +67,15 @@ To select the 1,806-label subset reported in the paper, retain records where `tr
 
 ## Interpretation guidance and Google Earth Engine resources
 
-The study also uses the following resources in the research repository. These resources are maintained separately from this data-release package.
+The [gee/](gee/) scripts listed under Released files generated the imagery views interpreters used. The interpreter guide documents the decision rules applied to those views.
 
 | Resource | Role in interpretation |
 | --- | --- |
+| [gee/modis.js](gee/modis.js) | Generates MODIS EVI time-series views used to assess crop phenology. |
+| [gee/landsat.js](gee/landsat.js) | Generates Landsat composite and image-chip views used to assess seasonal and spatial context. |
 | `decision_rule/operational criteria used by interpreter.doc` | Interpreter guide covering crop-system and cropping-sequence decision rules, spatial screening, and interpretation limitations. |
-| `gee/modis.js` | Generates MODIS EVI time-series views used to assess crop phenology. |
-| `gee/landsat.js` | Generates Landsat composite and image-chip views used to assess seasonal and spatial context. |
+
+The scripts run in the Google Earth Engine Code Editor and require an Earth Engine account.
 
 The accompanying paper provides the methodological detail needed to interpret these resources.
 
@@ -81,19 +83,22 @@ The accompanying paper provides the methodological detail needed to interpret th
 
 ### Reproducing the published summaries (public)
 
-Dataset coverage, response-support summaries, and crop-composition results can be reproduced from the public point-year table under an explicitly stated filtering policy. For example:
+Dataset coverage, the response-support counts in the paper's Table 1, QC counts, and crop-composition results can all be reproduced from the public point-year table under an explicitly stated filtering policy. For example:
 
 ```python
 import pandas as pd
 
 df = pd.read_csv("data/cerrado_crop_labels_point_year_v1.csv")
 
+# Response-support tiers before QC (paper's Table 1)
+print(df["label_support_tier"].value_counts())
+
 # Paper's analytical subset (cover-crop evidence retained as an attribute)
 flag = df["training_candidate_before_cover_filter"].astype(str).str.lower() == "true"
 subset = df[flag]
 print(len(subset))                                   # expected: 1,806
 
-# Records by response-support tier
+# Retained records by response-support tier
 print(subset["label_support_tier"].value_counts())
 
 # Crop composition, as a percentage of retained records in the subset
@@ -102,9 +107,9 @@ print((subset["mapped_class"].value_counts(normalize=True) * 100).round(1))
 
 ### Source files and processing code (on request)
 
-The public point-year table was derived from the ten origin CEO response exports and the interpreter-assignment table. These files contain identifying metadata and are not distributed. The processing code that builds the point-year table from them operates on thes restricted inputs and is available from the authors on request.
+The public point-year table was derived from the ten original CEO response exports and the interpreter-assignment table. These files contain identifying metadata and are not distributed. The processing code that builds the point-year table from them operates on these restricted inputs and is available from the authors on request.
 
-The released does not provide a complete history of every interpreter's pre-adjudication decision.
+The release does not provide a complete history of every interpreter's pre-adjudication decision.
 
 The labels may support downstream crop mapping, benchmarking, or model development after selection appropriate to the research question. Response support and QC flags do not certify independent accuracy.
 
