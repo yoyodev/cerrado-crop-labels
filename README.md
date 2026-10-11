@@ -41,6 +41,8 @@ The table includes original and final coordinates, anonymized interpreter respon
 | [data/cerrado_crop_labels_analytical_subset_v1.csv](data/cerrado_crop_labels_analytical_subset_v1.csv) | Derived convenience file: the 1,806-record analytical subset reported in the paper. Equivalent to filtering the main table on `training_candidate_before_cover_filter`. |
 | [data/data_dictionary.csv](data/data_dictionary.csv) | Column types and descriptions. |
 | [data/README.md](data/README.md) | Detailed data documentation, QC decisions, coordinate handling, and subset rules. |
+| [gee/modis.js](gee/modis.js) | Google Earth Engine script for the MODIS EVI time series views used in interpretation. |
+| [gee/landsat.js](gee/landsat.js) | Google Earth Engine script for the Landsat composites and image chip views used in interpretation. |
 
 
 ### Crop classes and selectable subsets
