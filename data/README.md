@@ -30,8 +30,7 @@ one recorded response in the downloaded CEO files and 96 with none. The table ma
 - `cerrado_crop_labels_analytical_subset_v1.csv`: derived convenience file containing the 1,806-record
   analytical subset reported in the paper; equivalent to filtering the main table on
   `training_candidate_before_cover_filter`. The main table remains the authoritative dataset.
-- `crop_class_mapping.csv`: mapping from raw CEO crop-system, crop-type, and sequence answers to the
-  standardized classes (Supplementary Table S1).
+- `crop_class_mapping.csv`: reference table linking standardized crop classes to their corresponding CEO crop-system, crop-type, or crop-sequence responses and class families.
 - `data_dictionary.csv`: column descriptions and types for the main table.
 
 Names, email addresses, assignment notes, and confidence comments are not distributed here.
