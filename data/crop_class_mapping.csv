@@ -1,0 +1,10 @@
+mapped_class,standardized_display_name,class_family,ceo_primary_response,ceo_secondary_response,secondary_response_field
+Soy,Soybean,Single crop,Single crop,Soy,crop_type_raw
+Corn,Corn,Single crop,Single crop,Corn,crop_type_raw
+Cotton,Cotton,Single crop,Single crop,Cotton,crop_type_raw
+Sugarcane,Sugarcane,Single crop/perennial,Single crop,Sugarcane,crop_type_raw
+Rice,Rice,Single crop,Single crop,Rice,crop_type_raw
+Other,Other,Single crop/other,Single crop,Other,crop_type_raw
+Soy–corn,Soybean–corn,Double crop,Double crop,Soy-corn,cropping_sequence_raw
+Soy–cotton,Soybean–cotton,Double crop,Double crop,Soy-cotton,cropping_sequence_raw
+Soy–other,Soybean–other,Double crop,Double crop,Soy-other,cropping_sequence_raw
