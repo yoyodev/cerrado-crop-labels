@@ -44,6 +44,8 @@ The table includes original and final coordinates, anonymized interpreter respon
 | [data/README.md](data/README.md) | Detailed data documentation, QC decisions, coordinate handling, and subset rules. |
 | [gee/modis.js](gee/modis.js) | Google Earth Engine script for the MODIS EVI time-series views used in interpretation. |
 | [gee/landsat.js](gee/landsat.js) | Google Earth Engine script for the Landsat composite and image-chip views used in interpretation. |
+| [decision_guidance/Interpreter decision guide.pdf](decision_guidance/Interpreter decision guide.pdf) | A PDF interpretation guide  |
+
 
 ### Crop classes and selectable subsets
 
