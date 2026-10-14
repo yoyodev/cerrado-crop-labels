@@ -1,4 +1,4 @@
-# Satellite-based, collaborative workflow and audit dataset for crop-type and crop-rotation labels in the Brazilian Cerrado
+# Satellite-based, collaborative workflow and dataset for crop-type and crop-rotation labels in the Brazilian Cerrado
 
 This repository accompanies a study of crop-type and cropping-sequence labeling in the Brazilian Cerrado. Interpreters combined MODIS Enhanced Vegetation Index (EVI) time series with Landsat composites and recorded their observations in Collect Earth Online (CEO). The repository provides the public remotely interpreted crop-label tables and documentation for harmonization, interpreter response support, review, and quality control.
 
